@@ -11,8 +11,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author Yanghu
- * @since 2018-11-24
+ * @author gjyang
+ * @since 2018-11-26
  */
 @TableName("tbl_role")
 public class Role extends Model<Role> {

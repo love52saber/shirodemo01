@@ -1,10 +1,11 @@
 package com.hedian.shirodemo01.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
+import java.io.Serializable;
 
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
@@ -12,8 +13,8 @@ import java.io.Serializable;
  * 
  * </p>
  *
- * @author Yanghu
- * @since 2018-11-24
+ * @author gjyang
+ * @since 2018-11-26
  */
 @TableName("tbl_user")
 public class User extends Model<User> {
@@ -22,7 +23,7 @@ public class User extends Model<User> {
 
 	@TableId(value="id", type= IdType.AUTO)
 	private Integer id;
-	private String name;
+	private String username;
 	private String password;
 	private String role;
 
@@ -35,12 +36,12 @@ public class User extends Model<User> {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -68,7 +69,7 @@ public class User extends Model<User> {
 	public String toString() {
 		return "User{" +
 			", id=" + id +
-			", name=" + name +
+			", username=" + username +
 			", password=" + password +
 			", role=" + role +
 			"}";

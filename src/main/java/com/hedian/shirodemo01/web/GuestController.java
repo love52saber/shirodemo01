@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018-11-24
  */
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/guest")
 public class GuestController {
 
     @RequestMapping(value = "/getMessage", method = RequestMethod.GET)

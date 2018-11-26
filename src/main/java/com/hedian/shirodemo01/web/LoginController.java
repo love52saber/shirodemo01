@@ -8,6 +8,7 @@ import com.hedian.shirodemo01.service.IUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
+    @Autowired
     private IUserService iUserService;
 
     @RequestMapping(value = "/notLogin", method = RequestMethod.GET)
@@ -58,7 +60,7 @@ public class LoginController {
         // 执行认证登陆
         subject.login(token);
         //根据权限，指定返回数据
-        User user = iUserService.selectOne(new EntityWrapper<User>().eq("usernmae", username));
+        User user = iUserService.selectOne(new EntityWrapper<User>().eq("username", username));
         String role = user.getRole();
         if ("user".equals(role)) {
             return new ResultMap().success().message("欢迎登陆");
