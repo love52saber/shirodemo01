@@ -27,7 +27,6 @@ public class MyRealm extends AuthorizingRealm {
         User user = iUserService.selectOne(new EntityWrapper<User>().eq("username", username));
         Set<String> set = new HashSet<>();
         //需要将 role 封装到 Set 作为 info.setRoles() 的参数
-        set.add(user.getRole());
         //设置该用户拥有的角色
         info.setRoles(set);
         return info;

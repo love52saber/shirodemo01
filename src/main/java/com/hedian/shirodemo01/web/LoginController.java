@@ -61,13 +61,6 @@ public class LoginController {
         subject.login(token);
         //根据权限，指定返回数据
         User user = iUserService.selectOne(new EntityWrapper<User>().eq("username", username));
-        String role = user.getRole();
-        if ("user".equals(role)) {
-            return new ResultMap().success().message("欢迎登陆");
-        }
-        if ("admin".equals(role)) {
-            return new ResultMap().success().message("欢迎来到管理员页面");
-        }
         return new ResultMap().success().message("权限错误！");
     }
 

@@ -56,7 +56,6 @@ public class Test01 {
                 .withIssuedAt(iatDate) // sign time
                 .withExpiresAt(expiresDate) // expire time
                 .sign(Algorithm.HMAC256(SECRET)); // signature
-
         return token;
     }
 
@@ -110,6 +109,15 @@ public class Test01 {
         Map<String, Claim> map = Test01.verifyToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
                 ".eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiNDU0NCIsImlzcyI6IlNlcnZpY2UiLCJleHAiOjE1NDQxNDU4NzAsImlhdCI6MTU0MzI4MTg3MH0.otOSPY8dyGrxvnN5fgKWc_BJO1_Y04bE2IuHCujSJkM");
         System.out.println(map);
+    }
+
+    @Test
+    public void test03() {
+        DecodedJWT decode = JWT.decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
+                ".eyJhdWQiOiJBUFAiLCJ1c2VyX2lkIjoiNDU0NCIsImlzcyI6IlNlcnZpY2UiLCJleHAiOjE1NDQxNDU4NzAsImlhdCI6MTU0MzI4MTg3MH0.otOSPY8dyGrxvnN5fgKWc_BJO1_Y04bE2IuHCujSJkM");
+        System.out.println(decode.getPayload());
+        System.out.println(decode.getHeader());
+        System.out.println(decode.getSignature());
     }
 }
 
